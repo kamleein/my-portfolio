@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7MW28PX3JW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7MW28PX3JW');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamal Prasad Raman - CV</title>
+    <style>
+        /* BASE STYLES */
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+            font-size: 8.5pt;
+            line-height: 1.3;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px;
+            background: #f8fafc;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(26, 54, 93, 0.3);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .header h1 {
+            margin: 0 0 8px 0;
+            font-size: 24pt;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+        .header .title {
+            font-size: 11pt;
+            opacity: 0.95;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .header .contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 9pt;
+        }
+        .header .contact span {
+            background: rgba(255,255,255,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        /* LAYOUT */
+        .two-column-layout {
+            display: flex;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .left-column { 
+            width: 28%; 
+            flex-shrink: 0; 
+            /* Added styles below */
+            background-color:rgba(248, 248, 252, 0.27);
+            padding: 15px;
+            border-radius: 12px;}
+        .right-column { width: 72%; flex-grow: 1; }
+
+        /* HEADERS */
+        .section-header {
+            color: #1a365d;
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin: 20px 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #4299e1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* --- TIMELINE COMPONENT (LEFT COL) --- */
+        .timeline-container {
+            position: relative;
+            padding-left: 15px;
+            border-left: 2px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 18px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px; 
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4299e1;
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px #4299e1;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .timeline-role {
+            font-weight: 700;
+            color: #1a365d;
+            font-size: 9pt;
+            line-height: 1.2;
+        }
+        .timeline-company {
+            font-weight: 600;
+            color: #2c5282;
+            font-size: 8.5pt;
+            margin: 2px 0;
+        }
+        .timeline-meta {
+            color: #718096;
+            font-size: 7.5pt;
+            display: block;
+        }
+        
+        /* --- LEFT COL COMPONENTS --- */
+        .competencies-grid { display: flex; flex-direction: column; gap: 10px; }
+        .competency-card {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-top: 3px solid #2c5282;
+        }
+        .competency-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 9pt;
+            color: #1a365d;
+        }
+        .competency-list { padding: 0; margin: 0; list-style: none; }
+        .competency-list li {
+            font-size: 8pt;
+            padding: 2px 0;
+            border-bottom: 1px solid #f7fafc;
+            color: #4a5568;
+        }
+
+<!--        .cert-badge {
+            background: #edf2f7;
+            border-left: 3px solid #48bb78;
+            padding: 8px;
+            font-size: 8pt;
+            margin-bottom: 6px;
+            color: #2d3748;
+        }-->
+  
+        .cert-badge {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 10pt;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 3px 10px rgba(26, 54, 93, 0.3);
+            transition: transform 0.2s ease;
+        }
+        .cert-badge:hover {
+            transform: translateY(-2px);
+        }
+        .cert-badge::before {
+            content: '✓';
+            background: #48bb78;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12pt;
+            font-weight: bold;
+        }        
+        
+        .clients-list {
+            list-style: none; padding: 0; margin: 0;
+            display: flex; flex-wrap: wrap; gap: 6px;
+        }
+        .clients-list li {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 8pt;
+            color: #2d3748;
+        }
+
+        .education-details h3 { font-size: 9pt; margin: 0; color: #1a365d; }
+        .education-details p { font-size: 8pt; margin: 2px 0 0 0; color: #718096; }
+
+        /* --- RIGHT COL COMPONENTS --- */
+        .summary-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+            font-size: 9pt;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Current Role Header */
+        .current-role-header {
+            background: #ebf8ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2b6cb0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .current-role-header h3 { margin: 0; color: #2c5282; font-size: 11pt; }
+        .current-role-header div { font-size: 9pt; color: #4a5568; margin-top: 4px; }
+
+        /* Achievement Boxes */
+        .achievement-section {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            page-break-inside: avoid;
+        }
+        .achievement-section h4 {
+            color: #2c5282;
+            margin: 0 0 8px 0;
+            font-size: 10pt;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .achievement-section ul { margin: 0; padding-left: 18px; }
+        .achievement-section li { margin: 4px 0; font-size: 9pt; color: #4a5568; }
+        
+        .sub-achievements {
+            background: #f8fafc;
+            padding: 8px 12px;
+            margin: 6px 0 6px 18px;
+            border-radius: 6px;
+            border-left: 2px solid #cbd5e0;
+        }
+        .sub-achievements li { font-size: 8.5pt; }
+
+        /* New Telecom Domain Section */
+        .domain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .domain-card {
+            background: #fffaf0; /* Light orange tint to differentiate */
+            border: 1px solid #feebc8;
+            padding: 12px;
+            border-radius: 8px;
+            page-break-inside: avoid;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .domain-card.full-width { grid-column: span 2; }
+        .domain-card h5 {
+            color: #c05621;
+            margin: 0 0 8px 0;
+            font-size: 9.5pt;
+            border-bottom: 1px solid #fbd38d;
+            padding-bottom: 4px;
+        }
+        .domain-card ul { margin: 0; padding-left: 16px; }
+        .domain-card li { font-size: 8.5pt; color: #2d3748; margin-bottom: 4px; }
+
+        /* PRINT SETTINGS */
+        @media print {
+            @page { margin: 0.3in; size: A4; }
+            body { background: white; }
+            
+            /* Use Floats for Print Reliability */
+            .two-column-layout { display: block !important; }
+            .left-column { 
+                width: 28% !important; 
+                float: left !important; 
+            }
+            .right-column { 
+                width: 68% !important; 
+                float: right !important; 
+            }
+            
+            /* Clean up visuals */
+            .timeline-container { border-left-color: #cbd5e0 !important; }
+            .achievement-section, .domain-card, .summary-card { 
+                box-shadow: none; 
+                border: 1px solid #ddd;
+            }
+            
+            /* Avoid breaks */
+            .domain-card, .achievement-section, .timeline-item { 
+                break-inside: avoid; 
+                page-break-inside: avoid; 
+            }
+            
+            /* Hide hyperlinks */
+            a { text-decoration: none; color: inherit; }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .two-column-layout { flex-direction: column; }
+            .left-column, .right-column { width: 100%; }
+            .domain-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>KAMAL PRASAD RAMAN</h1>
+    <div class="title">DevOps Engineer | Software Dev Engr Sr | Telecom Billing Specialist</div>
+    <div class="contact">
+        <span>📍 Melbourne, VIC</span>
+        <span>📱 045-197-0553</span>
+        <span>✉️ kamleein@gmail.com</span>
+    </div>
+</div>
+
+<div class="two-column-layout">
+
+    <div class="left-column">
+        
+        <div class="section-header" style="margin-top:0;">Experience History</div>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-role">DevOps Engineer / SDE Sr</div>
+                <div class="timeline-company">CSG International</div>
+                <span class="timeline-meta">Melbourne | Apr 2021 – Present</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-role">Senior Developer / Business Consultant Sr</div>
+                <div class="timeline-company">Seavus DOOEL</div>
+                <span class="timeline-meta">Macedonia | Jan 2015 – Apr 2021</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-role">Siebel Consultant</div>
+                <div class="timeline-company">Apar Technologies</div>
+                <span class="timeline-meta">Singapore | Apr 2014 – Nov 2014</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-role">Senior Developer / Lead</div>
+                <div class="timeline-company">Seavus DOOEL</div>
+                <span class="timeline-meta">Macedonia | Feb 2013 – Apr 2014</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-role">Product Delivery Engineer</div>
+                <div class="timeline-company">Huawei Technologies</div>
+                <span class="timeline-meta">Thailand | Aug 2011 – Jan 2013</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-role">Development Consultant Sr</div>
+                <div class="timeline-company">CSG International</div>
+                <span class="timeline-meta">Bangalore | Mar 2007 – Aug 2011</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-role">Trainee Developer</div>
+                <div class="timeline-company">Nilgiri Networks</div>
+                <span class="timeline-meta">Ooty | Jul 2006 – Feb 2007</span>
+            </div>
+        </div>
+
+        <div class="section-header">Major Clients</div>
+        <ul class="clients-list">
+            <li>Vocus</li>
+            <li>Optus</li>
+            <li>Nexon</li>
+            <li>Voyager</li>
+            <li>VicTracks</li>
+            <li>Tele2 NL</li>
+            <li>H3 UK</li>
+            <li>Vodafone IT</li>
+            <li>Inmarsat UK</li>
+            <li>DTAC Thai</li>
+            <li>MTN Nigeria</li>
+            <li>Polkomtel</li>
+            <li>Equinix</li>
+        </ul>
+
+        <div class="section-header">Core Competencies</div>
+        <div class="competencies-grid">
+            <div class="competency-card">
+                <h4>DevOps & Cloud</h4>
+                <ul class="competency-list">
+                    <li>AWS, Azure DevOps</li>
+                    <li>Docker & Kubernetes</li>
+                    <li>Terraform, CI/CD</li>
+                </ul>
+            </div>
+            <div class="competency-card">
+                <h4>Telecom Domain</h4>
+                <ul class="competency-list">
+                    <li>Singleview/Encompass</li>
+                    <li>Billing & Rating</li>
+                    <li>Product Config</li>
+                </ul>
+            </div>
+            <div class="competency-card">
+                <h4>Automation</h4>
+                <ul class="competency-list">
+                    <li>Cypress / Playwright</li>
+                    <li>Robot Framework</li>
+                    <li>Python / Bash</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-header">Certifications</div>
+        <div class="cert-badge"><a href="https://www.linkedin.com/in/kamleein/details/certifications/" style="color: white;text-decoration: none;">Certifications</a></div>
+        
+        <div class="section-header">Education</div>
+        <div class="education-details">
+            <h3>M.Sc. Software Engineering</h3>
+            <p>Bharathiar University<br>2001 – 2006</p>
+        </div>
+    </div>
+
+    <div class="right-column">
+        
+        <div class="section-header" style="margin-top:0;">Professional Summary</div>
+        <div class="summary-card">
+            Results-driven DevOps Engineer and Software Dev Engr Sr with <strong>19+ years</strong> of experience in telecommunications. Proven track record of designing <strong>end-to-end test automation frameworks</strong>, building <strong>CI/CD pipelines</strong>, and driving <strong>infrastructure modernization</strong>. Strong background in telecom billing systems (Singleview, Encompass) combined with modern cloud and DevOps technologies.
+        </div>
+
+        <div class="section-header">Current Focus: DevOps & Automation</div>
+        
+        <div class="achievement-section">
+            <h4>🚀 End-to-End Test Automation Framework (Major Impact)</h4>
+            <ul>
+                <li>Solely designed a comprehensive <strong>E2E Test Automation Framework</strong> using <strong>Cypress and Playwright</strong>, enabling testing across multiple AWS accounts/CDEs.</li>
+                <li>Migrated E2E Tests from Cypress to <strong>Playwright/Robot Framework</strong>, reducing maintenance overhead by 50%.</li>
+                <li>Developed pipeline scripts for building Docker images and test composer scripts used by all service projects.</li>
+            </ul>
+        </div>
+        
+        <div class="achievement-section">
+            <h4>🏗️ Infrastructure & CI/CD</h4>
+            <ul>
+                <li>Created and maintained critical repositories (encompass-ebi-ecfp, ec-e2eusecase).</li>
+                <li>Implemented <strong>AWS ECR image management</strong> with automated build/push pipelines.</li>
+                <li>Executed compliance initiatives: Docker Client Certificate updates, GAM Rebranding, and Access Key Rotation.</li>
+            </ul>
+        </div>
+
+        <div class="achievement-section">
+            <h4>📊 DevOps Pipeline Development</h4>
+            <ul>
+                <li>Designed YAML-based <strong>Azure DevOps pipelines</strong> with scheduled builds and multi-environment support.</li>
+                <li>Implemented common build templates and Shell scripts for orchestration.</li>
+            </ul>
+        </div>
+
+        <div class="achievement-section">
+            <h4>💡 Innovation & Knowledge Sharing</h4>
+            <ul>
+                <li>Early adopter of <strong>Cursor AI</strong> for development productivity.</li>
+                <li>Active contributor to internal AI community sharing best practices.</li>
+            </ul>
+        </div>
+
+        <div class="section-header">Telecom Domain & Legacy Expertise</div>
+
+        <div class="achievement-section">
+            <h4>📋 Strategic Consulting & Business Analysis</h4>
+            <ul>
+                <li><strong>Requirements Engineering:</strong> Collaborated with business users to analyze operational impacts and created As-Is process flows for legacy billing systems (DTAC).</li>
+                <li><strong>Solution Design:</strong> Built POC models and documented <strong>Functional Requirement Specifications (FRS)</strong> and Interface Control Documents (ICD).</li>
+                <li><strong>Agile Leadership:</strong> Led scrum teams as Scrum Master, engaging with product owners and training developers on <strong>Singleview architecture</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="achievement-section">
+            <h4>💳 Billing Systems Engineering</h4>
+            <ul>
+                <li><strong>Singleview & Siebel:</strong> Expertise in <strong>Singleview & Siebel</strong> billing integration, Rating & Charging, and Product Configuration.</li>
+                <li><strong>Module Development:</strong> Designed telco modules for Billing Discounts, Price Increases, and TAP/Roaming.</li>
+                <li><strong>Financial Compliance:</strong> Implemented financial logic for <strong>SEPA (Single Euro Payments Area)</strong> and Volume Discounts.</li>
+            </ul>
+        </div>
+
+        <div class="achievement-section">
+            <h4>🔄 System Integration & Delivery</h4>
+            <ul>
+                <li><strong>Legacy Migration:</strong> Managed complex <strong>Data Migration</strong> projects, executing transitions from legacy systems to Singleview.</li>
+                <li><strong>Integration:</strong> Integrated CBS with external systems (UVC, Mediation, PRM) via ESB and handled Singleview integration with OSB.</li>
+                <li><strong>On-Site Delivery:</strong> Provided high-stakes on-site support at <strong>MTN Nigeria</strong> for Singleview implementation.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="footer" style="text-align:center; font-size:7pt; color:#aaa; margin-top:20px; border-top:1px solid #eee; padding-top:10px;">
+    References available upon request
+</div>
+
+</body>
+</html>
