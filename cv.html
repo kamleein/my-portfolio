@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7MW28PX3JW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7MW28PX3JW');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MW28PX3JW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7MW28PX3JW');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamal Prasad Raman - CV</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         /* BASE STYLES */
         * { box-sizing: border-box; }
@@ -74,10 +75,10 @@
         .left-column { 
             width: 28%; 
             flex-shrink: 0; 
-            /* Added styles below */
             background-color:rgba(248, 248, 252, 0.27);
             padding: 15px;
-            border-radius: 12px;}
+            border-radius: 12px;
+        }
         .right-column { width: 72%; flex-grow: 1; }
 
         /* HEADERS */
@@ -95,7 +96,7 @@
             gap: 8px;
         }
         
-        /* --- TIMELINE COMPONENT (LEFT COL) --- */
+        /* TIMELINE */
         .timeline-container {
             position: relative;
             padding-left: 15px;
@@ -138,7 +139,7 @@
             display: block;
         }
         
-        /* --- LEFT COL COMPONENTS --- */
+        /* COMPONENTS */
         .competencies-grid { display: flex; flex-direction: column; gap: 10px; }
         .competency-card {
             background: white;
@@ -160,42 +161,55 @@
             color: #4a5568;
         }
 
-<!--        .cert-badge {
-            background: #edf2f7;
-            border-left: 3px solid #48bb78;
-            padding: 8px;
-            font-size: 8pt;
-            margin-bottom: 6px;
-            color: #2d3748;
-        }-->
-  
+        /* --- UPDATED AWS BADGE STYLING --- */
         .cert-badge {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 10pt;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 3px 10px rgba(26, 54, 93, 0.3);
-            transition: transform 0.2s ease;
-        }
+            background-color: #232f3e !important;
+            border: 1px solid rgba(255, 153, 0, 0.3) !important;
+            color: white !important;
+            padding: 6px 12px !important;
+            border-radius: 4px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            text-decoration: none !important;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+        }       
+
         .cert-badge:hover {
-            transform: translateY(-2px);
-        }
-        .cert-badge::before {
-            content: '✓';
-            background: #48bb78;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
+            background-color: #1a242f !important;
+            border-color: rgba(255, 153, 0, 0.6) !important;
+        }       
+
+        .cert-badge i.fa-aws {
+            color: #ff9900 !important; /* The precise AWS Orange logo color */
+            font-size: 18px !important;
+            display: block !important;
+        }       
+
+        .cert-text-left {
+            text-align: left;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            font-size: 12pt;
-            font-weight: bold;
-        }        
+            line-height: 1 !important;
+        }       
+
+        .cert-label {
+            font-size: 7px !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            text-transform: uppercase !important;
+            font-weight: 900 !important;
+            letter-spacing: 0.5px;
+            margin: 0 0 2px 0 !important;
+        }       
+
+        .cert-name {
+            font-size: 10px !important;
+            font-weight: 700 !important;
+            color: white !important;
+            margin: 0 !important;
+        }
         
         .clients-list {
             list-style: none; padding: 0; margin: 0;
@@ -213,7 +227,6 @@
         .education-details h3 { font-size: 9pt; margin: 0; color: #1a365d; }
         .education-details p { font-size: 8pt; margin: 2px 0 0 0; color: #718096; }
 
-        /* --- RIGHT COL COMPONENTS --- */
         .summary-card {
             background: white;
             padding: 15px;
@@ -224,20 +237,16 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        /* Current Role Header */
         .current-role-header {
             background: #ebf8ff;
             padding: 12px;
             border-radius: 8px;
             margin-bottom: 15px;
             border-left: 4px solid #2b6cb0;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
         }
         .current-role-header h3 { margin: 0; color: #2c5282; font-size: 11pt; }
         .current-role-header div { font-size: 9pt; color: #4a5568; margin-top: 4px; }
 
-        /* Achievement Boxes */
         .achievement-section {
             background: white;
             border: 1px solid #e2e8f0;
@@ -255,72 +264,16 @@
         }
         .achievement-section ul { margin: 0; padding-left: 18px; }
         .achievement-section li { margin: 4px 0; font-size: 9pt; color: #4a5568; }
-        
-        .sub-achievements {
-            background: #f8fafc;
-            padding: 8px 12px;
-            margin: 6px 0 6px 18px;
-            border-radius: 6px;
-            border-left: 2px solid #cbd5e0;
-        }
-        .sub-achievements li { font-size: 8.5pt; }
-
-        /* New Telecom Domain Section */
-        .domain-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .domain-card {
-            background: #fffaf0; /* Light orange tint to differentiate */
-            border: 1px solid #feebc8;
-            padding: 12px;
-            border-radius: 8px;
-            page-break-inside: avoid;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        .domain-card.full-width { grid-column: span 2; }
-        .domain-card h5 {
-            color: #c05621;
-            margin: 0 0 8px 0;
-            font-size: 9.5pt;
-            border-bottom: 1px solid #fbd38d;
-            padding-bottom: 4px;
-        }
-        .domain-card ul { margin: 0; padding-left: 16px; }
-        .domain-card li { font-size: 8.5pt; color: #2d3748; margin-bottom: 4px; }
 
         /* PRINT SETTINGS */
         @media print {
             @page { margin: 0.3in; size: A4; }
             body { background: white; }
-            
-            /* Use Floats for Print Reliability */
             .two-column-layout { display: block !important; }
-            .left-column { 
-                width: 28% !important; 
-                float: left !important; 
-            }
-            .right-column { 
-                width: 68% !important; 
-                float: right !important; 
-            }
-            
-            /* Clean up visuals */
-            .timeline-container { border-left-color: #cbd5e0 !important; }
-            .achievement-section, .domain-card, .summary-card { 
-                box-shadow: none; 
-                border: 1px solid #ddd;
-            }
-            
-            /* Avoid breaks */
-            .domain-card, .achievement-section, .timeline-item { 
-                break-inside: avoid; 
-                page-break-inside: avoid; 
-            }
-            
-            /* Hide hyperlinks */
+            .left-column { width: 28% !important; float: left !important; }
+            .right-column { width: 68% !important; float: right !important; }
+            .achievement-section, .summary-card { box-shadow: none; border: 1px solid #ddd; }
+            .achievement-section, .timeline-item { page-break-inside: avoid; }
             a { text-decoration: none; color: inherit; }
         }
         
@@ -328,7 +281,6 @@
         @media (max-width: 768px) {
             .two-column-layout { flex-direction: column; }
             .left-column, .right-column { width: 100%; }
-            .domain-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -440,7 +392,13 @@
         </div>
 
         <div class="section-header">Certifications</div>
-        <div class="cert-badge"><a href="https://www.linkedin.com/in/kamleein/details/certifications/" style="color: white;text-decoration: none;">Certifications</a></div>
+        <a href="https://www.linkedin.com/in/kamleein/details/certifications/" target="_blank" class="cert-badge">
+            <i class="fab fa-aws"></i>
+            <div class="cert-text-left">
+                <p class="cert-label">AWS Certified</p>
+                <p class="cert-name">Co-Pilot</p>
+            </div>
+        </a>
         
         <div class="section-header">Education</div>
         <div class="education-details">
