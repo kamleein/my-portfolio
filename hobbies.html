@@ -40,7 +40,7 @@
 
     <section class="pb-20 px-6 max-w-6xl mx-auto">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4" id="sketch-gallery">
-            </div>
+        </div>
     </section>
 
     <footer class="py-10 text-center border-t border-white/5">
@@ -51,30 +51,40 @@
         const gallery = document.getElementById('sketch-gallery');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-        const totalSketches = 18;
 
-        // 1. Generate the HTML for 25 images
-        for (let i = 1; i <= totalSketches; i++) {
-            // Path correctly points to your S3 subfolder 'sketches/'
-            const fileName = `Pics/sketch${i}.jpeg`;
+        // 1. List your sketch filenames here
+        // Update this list whenever you add a new image to your 'sketches' folder
+        const sketches = [
+            'sketch1.jpg',
+            'sketch2.jpg',
+            'sketch3.jpg',
+            'sketch4.jpg',
+            'sketch5.jpg',
+            'sketch6.jpg'
+        ];
+
+        // 2. Generate the gallery items dynamically
+        sketches.forEach((fileName, index) => {
+            // Path now correctly points to your 'pics/sketches/' subfolder
+            const filePath = `pics/sketches/${fileName}`;
             
             const item = document.createElement('div');
             item.className = "gallery-item glass p-1 rounded-lg overflow-hidden relative group cursor-pointer aspect-square";
             item.innerHTML = `
-                <img src="${fileName}" alt="Sketch ${i}" class="w-full h-full object-cover rounded-md" loading="lazy">
+                <img src="${filePath}" alt="Sketch ${index + 1}" class="w-full h-full object-cover rounded-md" loading="lazy">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <i class="fas fa-search-plus text-white text-xl"></i>
                 </div>
             `;
             
-            // 2. Open full-screen lightbox on click
+            // 3. Open full-screen lightbox on click
             item.onclick = () => {
-                lightboxImg.src = fileName;
+                lightboxImg.src = filePath;
                 lightbox.style.display = 'flex';
             };
             
             gallery.appendChild(item);
-        }
+        });
     </script>
 </body>
 </html>
