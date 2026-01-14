@@ -51,21 +51,33 @@
         const gallery = document.getElementById('sketch-gallery');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-
+    
         // 1. List your sketch filenames here
-        // Update this list whenever you add a new image to your 'sketches' folder
         const sketches = [
-            'sketch1.jpg',
-            'sketch2.jpg',
-            'sketch3.jpg',
-            'sketch4.jpg',
-            'sketch5.jpg',
-            'sketch6.jpg'
+            'sketch1.jpeg',
+            'sketch2.jpeg',
+            'sketch3.jpeg',
+            'sketch4.jpeg',
+            'sketch5.jpeg',
+            'sketch6.jpeg',
+            'sketch7.jpeg',
+            'sketch8.jpeg',
+            'sketch9.jpeg',
+            'sketch10.jpeg',
+            'sketch11.jpeg',
+            'sketch12.jpeg',
+            'sketch13.jpeg',
+            'sketch14.jpeg',
+            'sketch15.jpeg',
+            'sketch16.jpeg',
+            'sketch17.jpeg',
+            'sketch18.jpeg'
+            // Add more filenames as you add them to the folder
         ];
-
+    
         // 2. Generate the gallery items dynamically
         sketches.forEach((fileName, index) => {
-            // Path now correctly points to your 'pics/sketches/' subfolder
+            // Updated Path: points to 'pics/sketches/'
             const filePath = `pics/sketches/${fileName}`;
             
             const item = document.createElement('div');
