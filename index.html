@@ -13,18 +13,28 @@
     <title>Kamal Prasad Raman | DevOps & Automation Architect</title>
     
     <meta name="description" content="19+ years driving Infrastructure Modernization and E2E Test Automation for global Telecom leaders.">
-    <meta property="og:title" content="Kamal Prasad Raman | DevOps & Automation Architect">
-    <meta property="og:description" content="Infrastructure & Automation Leader specialized in AWS, Terraform, and Telecom Systems.">
-    <meta property="og:image" content="pics/profile.jpg">
-    <meta property="og:url" content="https://kamlee.in">
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .bg-linkedin { background-color: #0077B5; }
         .text-linkedin { color: #0077B5; }
-        .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s ease; }
-        .glass:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-2px); border-color: rgba(0, 119, 181, 0.4); }
+        
+        .glass { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+
+        /* Unified Popping Hover Effect */
+        .glass-pop:hover, .btn-pop:hover { 
+            background: rgba(255, 255, 255, 0.07); 
+            transform: translateY(-5px) scale(1.03); 
+            border-color: rgba(96, 165, 250, 0.5); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            z-index: 20;
+        }
+
         body { background: radial-gradient(circle at 50% -20%, #1e293b 0%, #0f172a 100%); }
     </style>
 </head>
@@ -42,27 +52,17 @@
 
             <div class="mt-4">
                 <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Kamal Prasad Raman</h1>
-                <p class="text-blue-400 font-semibold uppercase tracking-wider text-sm mt-1">
-                    Infrastructure & Automation Leader
-                </p>
+                <p class="text-blue-400 font-semibold uppercase tracking-wider text-sm mt-1">Infrastructure & Automation Leader</p>
                 <p class="text-slate-400 text-sm md:text-base mt-2 max-w-2xl leading-relaxed">
-                    19+ years driving <span class="text-white">Infrastructure Modernization</span> and 
-                    <span class="text-white">E2E Test Automation</span> for global Telecom leaders.
+                    19+ years driving <span class="text-white">Infrastructure Modernization</span> and <span class="text-white">E2E Test Automation</span> for global Telecom leaders.
                 </p>
             </div>
 
             <div class="flex flex-wrap items-center gap-3 mt-6">
-                <a href="cv.html" target="_blank" class="px-5 py-2 bg-linkedin hover:bg-[#005a8a] text-white text-xs rounded font-bold uppercase tracking-wider transition-all shadow-md">
-                    Curriculum Vitae
-                </a>
-                <a href="https://linkedin.com/in/kamleein" target="_blank" class="px-5 py-2 border border-slate-700 hover:bg-white/10 text-white text-xs rounded font-bold uppercase tracking-wider transition-all flex items-center gap-2">
-                    <i class="fab fa-linkedin text-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/kamleein" target="_blank" class="px-5 py-2 border border-slate-700 hover:bg-white/10 text-white text-xs rounded font-bold uppercase tracking-wider transition-all flex items-center gap-2">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                
-                <a href="https://www.linkedin.com/in/kamleein/details/certifications/" target="_blank" class="px-4 py-1.5 bg-[#232f3e] border border-orange-500/30 text-white rounded flex items-center gap-3 hover:bg-[#1a242f] transition-all">
+                <a href="cv.html" target="_blank" class="btn-pop px-5 py-2 bg-linkedin hover:bg-[#005a8a] text-white text-xs rounded font-bold uppercase tracking-wider shadow-md">Curriculum Vitae</a>
+                <a href="https://linkedin.com/in/kamleein" target="_blank" class="btn-pop px-5 py-2 border border-slate-700 hover:bg-white/10 text-white text-xs rounded font-bold uppercase tracking-wider flex items-center gap-2"><i class="fab fa-linkedin text-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/kamleein" target="_blank" class="btn-pop px-5 py-2 border border-slate-700 hover:bg-white/10 text-white text-xs rounded font-bold uppercase tracking-wider flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/kamleein/details/certifications/" target="_blank" class="btn-pop px-4 py-1.5 bg-[#232f3e] border border-orange-500/30 text-white rounded flex items-center gap-3">
                     <i class="fab fa-aws text-orange-500 text-xl"></i>
                     <div class="text-left">
                         <p class="text-[7px] text-white/70 uppercase font-black leading-none">CSG Certified</p>
@@ -75,35 +75,24 @@
 
     <section class="py-8 px-6 max-w-4xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass p-6 rounded-xl flex items-center gap-4 border-l-4 border-linkedin">
+            <div class="glass glass-pop p-6 rounded-xl flex items-center gap-4 border-l-4 border-linkedin">
                 <i class="fas fa-cloud text-2xl text-linkedin"></i>
-                <div>
-                    <div class="text-xl font-bold text-white leading-tight">19+ Years</div>
-                    <p class="text-[9px] text-slate-500 uppercase font-black tracking-widest">Multi-Cloud Strategy</p>
-                </div>
+                <div><div class="text-xl font-bold text-white leading-tight">19+ Years</div><p class="text-[9px] text-slate-500 uppercase font-black tracking-widest">Multi-Cloud Strategy</p></div>
             </div>
-
-            <div class="glass p-6 rounded-xl flex items-center gap-4 border-l-4 border-linkedin">
+            <div class="glass glass-pop p-6 rounded-xl flex items-center gap-4 border-l-4 border-linkedin">
                 <i class="fas fa-cogs text-2xl text-linkedin"></i>
-                <div>
-                    <div class="text-xl font-bold text-white leading-tight">Zero-Touch</div>
-                    <p class="text-[9px] text-slate-500 uppercase font-black tracking-widest">CI/CD Maturity</p>
-                </div>
+                <div><div class="text-xl font-bold text-white leading-tight">Zero-Touch</div><p class="text-[9px] text-slate-500 uppercase font-black tracking-widest">CI/CD Maturity</p></div>
             </div>
-
-            <div class="glass p-6 rounded-xl flex items-center gap-4 border-l-4 border-linkedin">
+            <div class="glass glass-pop p-6 rounded-xl flex items-center gap-4 border-l-4 border-linkedin">
                 <i class="fas fa-globe text-2xl text-linkedin"></i>
-                <div>
-                    <div class="text-xl font-bold text-white leading-tight">13+ Global</div>
-                    <p class="text-[9px] text-slate-500 uppercase font-black tracking-widest">Telecom Deployments</p>
-                </div>
+                <div><div class="text-xl font-bold text-white leading-tight">13+ Global</div><p class="text-[9px] text-slate-500 uppercase font-black tracking-widest">Telecom Deployments</p></div>
             </div>
         </div>
     </section>
 
     <section class="py-4 px-6 max-w-4xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div class="glass p-5 rounded-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="glass glass-pop p-5 rounded-lg border-t-2 border-blue-500/30">
                 <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-2 border-b border-white/10 pb-1">Technical Stack</h3>
                 <ul class="text-[11px] space-y-1 text-slate-400">
                     <li><strong class="text-blue-400">Cloud:</strong> AWS, Terraform</li>
@@ -111,7 +100,7 @@
                     <li><strong class="text-blue-400">Testing:</strong> Playwright, Robot Framework, Python</li>
                 </ul>
             </div>
-            <div class="glass p-5 rounded-lg">
+            <div class="glass glass-pop p-5 rounded-lg border-t-2 border-blue-500/30">
                 <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-2 border-b border-white/10 pb-1">Telecom Expertise</h3>
                 <ul class="text-[11px] space-y-1 text-slate-400">
                     <li><strong class="text-blue-400">Systems:</strong> Singleview, Encompass, Siebel</li>
@@ -122,21 +111,11 @@
         </div>
     </section>
 
-    <section class="py-10 px-6 text-center">
-        <a href="hobbies.html" class="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-full transition-all group shadow-lg">
-            <i class="fas fa-palette text-blue-400 group-hover:scale-110 transition-transform"></i>
-            <span class="text-xs font-bold uppercase tracking-widest text-slate-300">Explore My Sketches & Hobbies</span>
+    <footer class="mt-8 py-10 text-center border-t border-white/10">
+        <a href="mailto:contact@kamlee.in" class="btn-pop inline-block text-blue-400 font-medium transition-colors">
+            <span class="mr-2">✉</span>contact@kamlee.in
         </a>
-    </section>
-
-    <footer style="margin-top: 20px; padding: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
-        <p style="color: #a0aec0; font-size: 0.9rem; letter-spacing: 0.5px;">
-            <a href="mailto:contact@kamlee.in" style="color: #60a5fa; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">
-                <span style="margin-right: 8px; font-size: 1.1rem;">✉</span>contact@kamlee.in
-            </a>
-            <span style="margin: 0 15px; color: rgba(255,255,255,0.2);">|</span> 
-            &copy; 2026 Kamal Prasad Raman
-        </p>
+        <p class="text-slate-500 text-sm mt-4">&copy; 2026 Kamal Prasad Raman</p>
     </footer>
 
 </body>
