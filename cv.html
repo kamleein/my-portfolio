@@ -27,6 +27,7 @@
             margin: 0 auto;
             padding: 10px;
             background: #f8fafc;
+            overflow-x: hidden; /* Safety for mobile */
         }
 
         /* HEADER */
@@ -53,13 +54,14 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            transition: all 0.3s ease;
         }
-        .header .contact a:hover { background: rgba(255,255,255,0.25); }
+        .header .contact a:hover { background: rgba(255,255,255,0.3); transform: translateY(-1px); }
         
         /* LAYOUT */
         .two-column-layout { display: flex; gap: 25px; margin-top: 20px; position: relative; }
-        .left-column { width: 28%; flex-shrink: 0; background-color:rgba(248, 248, 252, 0.27); padding: 15px; border-radius: 12px; }
-        .right-column { width: 72%; flex-grow: 1; }
+        .left-column { width: 30%; flex-shrink: 0; background-color:rgba(248, 248, 252, 0.5); padding: 15px; border-radius: 12px; }
+        .right-column { width: 70%; flex-grow: 1; }
 
         /* HEADERS */
         .section-header {
@@ -68,31 +70,61 @@
             display: flex; align-items: center; gap: 8px;
         }
         
-        /* TIMELINE & HOVER POPUPS */
+        /* TIMELINE & HYBRID POPUPS */
         .timeline-container { position: relative; padding-left: 15px; border-left: 2px solid #e2e8f0; margin-bottom: 20px; }
-        .timeline-item { position: relative; margin-bottom: 18px; cursor: pointer; }
+        .timeline-item { position: relative; margin-bottom: 18px; cursor: help; }
         .timeline-item::before {
-            content: ''; position: absolute; left: -20px; top: 5px; width: 8px; height: 8px;
+            content: ''; position: absolute; left: -20px; top: 5px; width: 10px; height: 10px;
             border-radius: 50%; background: #4299e1; border: 2px solid white; box-shadow: 0 0 0 1px #4299e1;
-            -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            z-index: 2;
         }
         .timeline-role { font-weight: 700; color: #1a365d; font-size: 9pt; line-height: 1.2; }
         .timeline-company { font-weight: 600; color: #2c5282; font-size: 8.5pt; margin: 2px 0; }
         .timeline-meta { color: #718096; font-size: 7.5pt; display: block; }
 
+        /* Desktop Pop-up Style */
         .exp-details {
-            display: none; position: absolute; left: 105%; top: 0; width: 280px; background: white;
-            border: 1px solid #e2e8f0; border-left: 4px solid #4299e1; padding: 12px; border-radius: 8px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); z-index: 999; pointer-events: none;
+            display: none; 
+            position: absolute; 
+            left: 105%; 
+            top: -10px; 
+            width: 300px; 
+            background: white;
+            border: 1px solid #e2e8f0; 
+            border-left: 5px solid #4299e1; 
+            padding: 15px; 
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+            z-index: 1000;
+            pointer-events: auto; /* Fixed: Allows interaction on laptop */
         }
-        .timeline-item:hover .exp-details { display: block; animation: fadeIn 0.3s ease-in-out; }
-        .exp-details h5 { margin: 0 0 8px 0; color: #1a365d; font-size: 9pt; border-bottom: 1px solid #edf2f7; padding-bottom: 4px; }
+        
+        /* Show on hover for desktop */
+        @media screen and (min-width: 769px) {
+            .timeline-item:hover .exp-details { display: block; animation: fadeIn 0.3s ease-out; }
+        }
+
+        /* Mobile "No-Overflow" Style: Details appear inline instead of popping off-screen */
+        @media screen and (max-width: 768px) {
+            .two-column-layout { flex-direction: column; }
+            .left-column, .right-column { width: 100%; }
+            .exp-details { 
+                display: block; 
+                position: static; 
+                width: 100%; 
+                margin-top: 10px; 
+                box-shadow: none; 
+                background: rgba(66, 153, 225, 0.05); 
+            }
+        }
+
+        .exp-details h5 { margin: 0 0 8px 0; color: #1a365d; font-size: 9.5pt; border-bottom: 1px solid #edf2f7; padding-bottom: 4px; }
         .exp-details ul { margin: 0; padding-left: 15px; list-style-type: circle; }
-        .exp-details li { font-size: 8pt; color: #4a5568; margin-bottom: 4px; line-height: 1.2; }
+        .exp-details li { font-size: 8.5pt; color: #4a5568; margin-bottom: 5px; line-height: 1.3; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
         
-        /* GLOBAL POPPING BOX STYLE */
+        /* GLOBAL INTERACTIVE CARDS */
         .achievement-section, .summary-card, .competency-card, .education-card {
             background: white;
             border: 1px solid #e2e8f0;
@@ -100,64 +132,35 @@
             padding: 12px;
             margin-bottom: 12px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            page-break-inside: avoid;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Border Styles */
         .achievement-section, .summary-card { border-left: 4px solid #4299e1; }
         .competency-card, .education-card { border-top: 3px solid #4299e1; }
 
-        /* Unified Hover Effect */
         .achievement-section:hover, .summary-card:hover, .competency-card:hover, .education-card:hover, .cert-badge:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(66, 153, 225, 0.15);
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 12px 24px rgba(66, 153, 225, 0.12);
             border-color: #4299e1;
-            z-index: 10;
         }
 
-        /* AWS BADGE SPECIFIC */
+        /* AWS BADGE */
         .cert-badge {
             background-color: #232f3e !important; border: 1px solid rgba(255, 153, 0, 0.3) !important; color: white !important;
             padding: 12px !important; border-radius: 8px !important; display: flex !important; align-items: center !important;
-            gap: 10px !important; text-decoration: none !important; margin-top: 8px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            gap: 12px !important; text-decoration: none !important; margin-top: 8px;
         }       
-        .cert-badge:hover { background-color: #1a242f !important; border-color: #4299e1 !important; }       
-        .cert-badge i.fa-aws { color: #ff9900 !important; font-size: 20px !important; }       
-        .cert-text-left { text-align: left; display: flex; flex-direction: column; justify-content: center; line-height: 1.2 !important; }       
-        .cert-label { font-size: 7px !important; color: rgba(255, 255, 255, 0.7) !important; text-transform: uppercase !important; font-weight: 900 !important; margin: 0; }       
-        .cert-name { font-size: 11px !important; font-weight: 700 !important; color: white !important; margin: 0 !important; }
+        .cert-badge i.fa-aws { color: #ff9900 !important; font-size: 24px !important; }       
+        .cert-label { font-size: 7px !important; color: rgba(255, 255, 255, 0.7) !important; text-transform: uppercase; font-weight: 900; margin: 0; }       
+        .cert-name { font-size: 11px !important; font-weight: 700; color: white !important; margin: 0; }
 
-        .summary-card { padding: 15px; font-size: 9pt; margin-bottom: 20px; }
-        .achievement-section h4 { color: #2c5282; margin: 0 0 8px 0; font-size: 10pt; display: flex; align-items: center; gap: 6px; }
-        .achievement-section ul { margin: 0; padding-left: 18px; }
-        .achievement-section li { margin: 4px 0; font-size: 9pt; color: #4a5568; }
+        .summary-card { padding: 15px; font-size: 9.5pt; margin-bottom: 20px; line-height: 1.4; }
+        .achievement-section h4 { color: #2c5282; margin: 0 0 10px 0; font-size: 10pt; display: flex; align-items: center; gap: 8px; }
+        .achievement-section li { margin: 5px 0; font-size: 9pt; color: #4a5568; line-height: 1.4; }
 
-        /* COMPONENTS */
-        .competencies-grid { display: flex; flex-direction: column; gap: 10px; }
         .competency-card h4 { margin: 0 0 6px 0; font-size: 9pt; color: #1a365d; }
         .competency-list { padding: 0; margin: 0; list-style: none; }
-        .competency-list li { font-size: 8pt; padding: 2px 0; border-bottom: 1px solid #f7fafc; color: #4a5568; }
-        
-        .clients-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-        .clients-list li { background: white; border: 1px solid #e2e8f0; padding: 3px 8px; border-radius: 12px; font-size: 8pt; color: #2d3748; }
-
-        .education-card h3 { font-size: 9pt; margin: 0; color: #1a365d; }
-        .education-card p { font-size: 8pt; margin: 2px 0 0 0; color: #718096; }
-
-        /* PRINT SETTINGS */
-        @media print {
-            .exp-details { display: none !important; }
-            .achievement-section, .summary-card, .competency-card, .education-card, .cert-badge { transform: none !important; box-shadow: none !important; border: 1px solid #ddd !important; }
-            .achievement-section, .summary-card { border-left: 4px solid #4299e1 !important; }
-            .competency-card, .education-card { border-top: 3px solid #4299e1 !important; }
-            @page { margin: 0.3in; size: A4; }
-            body { background: white; }
-            .two-column-layout { display: block !important; }
-            .left-column { width: 28% !important; float: left !important; }
-            .right-column { width: 68% !important; float: right !important; }
-        }
+        .competency-list li { font-size: 8.5pt; padding: 3px 0; border-bottom: 1px solid #f7fafc; color: #4a5568; }
     </style>
 </head>
 <body>
@@ -170,8 +173,8 @@
         <span><i class="fas fa-phone"></i> 045-197-0553</span>
         <a href="mailto:kamleein@gmail.com"><i class="fas fa-envelope"></i> kamleein@gmail.com</a>
         <a href="https://kamlee.in" target="_blank"><i class="fas fa-globe"></i> kamlee.in</a>
-        <a href="https://www.linkedin.com/in/kamleein/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/kamleein</a>
-        <a href="https://github.com/kamleein" target="_blank"><i class="fab fa-github"></i> github.com/kamleein</a>
+        <a href="https://www.linkedin.com/in/kamleein/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/kamleein" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     </div>
 </div>
 
@@ -186,23 +189,23 @@
                 <div class="exp-details">
                     <h5>Key Focus & Impact</h5>
                     <ul>
-                        <li>Led design of E2E Framework using Playwright/Cypress.</li>
-                        <li>Implemented AWS ECR image management and CI/CD pipelines.</li>
-                        <li>Early adopter of Cursor AI for productivity.</li>
+                        <li>Led design of E2E Framework using <strong>Playwright/Cypress</strong>.</li>
+                        <li>Implemented <strong>AWS ECR</strong> image management and CI/CD pipelines.</li>
+                        <li>Early adopter of <strong>Cursor AI</strong> for productivity.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-role">Senior Developer / Business Consultant Sr</div>
+                <div class="timeline-role">Senior Developer / Consultant Sr</div>
                 <div class="timeline-company">Seavus DOOEL</div>
                 <span class="timeline-meta">Macedonia | Jan 2015 – Apr 2021</span>
                 <div class="exp-details">
                     <h5>Strategic Projects</h5>
                     <ul>
-                        <li>Expertise in Singleview & Siebel billing integration.</li>
+                        <li>Expertise in <strong>Singleview & Siebel</strong> billing integration.</li>
                         <li>Designed Rating, Charging, and Product Config modules.</li>
-                        <li>Managed complex Data Migration projects.</li>
+                        <li>Managed complex <strong>Data Migration</strong> projects.</li>
                     </ul>
                 </div>
             </div>
@@ -214,8 +217,8 @@
                 <div class="exp-details">
                     <h5>Contributions</h5>
                     <ul>
-                        <li>Analyzed operational impacts on legacy billing.</li>
-                        <li>Documented Functional Requirement Specifications (FRS).</li>
+                        <li>Analyzed operational impacts for <strong>DTAC</strong> legacy billing.</li>
+                        <li>Documented Functional Requirements (FRS).</li>
                     </ul>
                 </div>
             </div>
@@ -227,7 +230,7 @@
                 <div class="exp-details">
                     <h5>Leadership</h5>
                     <ul>
-                        <li>Led scrum teams as Scrum Master.</li>
+                        <li>Led scrum teams as <strong>Scrum Master</strong>.</li>
                         <li>Trained developers on Singleview architecture.</li>
                     </ul>
                 </div>
@@ -252,9 +255,9 @@
                 <div class="exp-details">
                     <h5>Domain Expertise</h5>
                     <ul>
-                        <li>Designed modules for Billing Discounts and Roaming.</li>
-                        <li>Implemented logic for SEPA and Volume Discounts.</li>
-                        <li>On-site support at MTN Nigeria for implementation.</li>
+                        <li>Designed Billing Discounts and Roaming logic.</li>
+                        <li>Implemented <strong>SEPA</strong> and Volume Discounts.</li>
+                        <li>On-site support at <strong>MTN Nigeria</strong>.</li>
                     </ul>
                 </div>
             </div>
@@ -266,38 +269,26 @@
                 <div class="exp-details">
                     <h5>Early Development</h5>
                     <ul>
-                        <li>Developed Attendance System.</li>
+                        <li>Developed Attendance Management System.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="section-header">Core Competencies</div>
-        <div class="competencies-grid">
-            <div class="competency-card">
-                <h4>DevOps & Cloud</h4>
-                <ul class="competency-list">
-                    <li>AWS, Azure DevOps</li>
-                    <li>Docker & Kubernetes</li>
-                    <li>Terraform, CI/CD</li>
-                </ul>
-            </div>
-            <div class="competency-card">
-                <h4>Telecom Domain</h4>
-                <ul class="competency-list">
-                    <li>Singleview/Encompass</li>
-                    <li>Billing & Rating</li>
-                    <li>Product Config</li>
-                </ul>
-            </div>
-            <div class="competency-card">
-                <h4>Automation</h4>
-                <ul class="competency-list">
-                    <li>Cypress / Playwright</li>
-                    <li>Robot Framework</li>
-                    <li>Python / Bash</li>
-                </ul>
-            </div>
+        <div class="competency-card">
+            <h4>Cloud & DevOps</h4>
+            <ul class="competency-list">
+                <li>AWS, Azure DevOps</li>
+                <li>Docker, Kubernetes, Terraform</li>
+            </ul>
+        </div>
+        <div class="competency-card">
+            <h4>Automation</h4>
+            <ul class="competency-list">
+                <li>Playwright, Cypress, Python</li>
+                <li>Robot Framework, Shell Scripting</li>
+            </ul>
         </div>
 
         <div class="section-header">Certifications</div>
@@ -311,85 +302,77 @@
         
         <div class="section-header">Education</div>
         <div class="education-card">
-            <h3>M.Sc. Software Engineering</h3>
-            <p>Bharathiar University<br>2001 – 2006</p>
+            <h3 style="margin:0; font-size:9pt; color:#1a365d;">M.Sc. Software Engineering</h3>
+            <p style="margin:2px 0; color:#718096;">Bharathiar University | 2001 – 2006</p>
         </div>
     </div>
 
     <div class="right-column">
         <div class="section-header" style="margin-top:0;">Professional Summary</div>
         <div class="summary-card">
-            Results-driven DevOps Engineer and Software Dev Engr Sr with <strong>19+ years</strong> of experience in telecommunications. Proven track record of designing <strong>end-to-end test automation frameworks</strong>, building <strong>CI/CD pipelines</strong>, and driving <strong>infrastructure modernization</strong>. Strong background in telecom billing systems (Singleview, Encompass) combined with modern cloud and DevOps technologies.
+            Results-driven DevOps Engineer with <strong>19+ years</strong> of experience in telecommunications. Specialized in <strong>infrastructure modernization</strong>, <strong>E2E test automation</strong>, and <strong>telecom billing systems</strong> (Singleview, Encompass). Proven track record of building <strong>CI/CD pipelines</strong> and driving technical innovation.
         </div>
 
-        <div class="section-header">Current Focus: DevOps & Automation</div>
+        <div class="section-header">DevOps & Automation Highlights</div>
         
         <div class="achievement-section">
-            <h4>🚀 End-to-End Test Automation Framework</h4>
+            <h4>🚀 End-to-End Test Automation</h4>
             <ul>
-                <li>Led the design of a comprehensive <strong>E2E Test Automation Framework</strong> using <strong>Cypress and Playwright</strong>.</li>
-                <li>Migrated E2E Tests from Cypress to <strong>Playwright/Robot Framework</strong>, reducing maintenance overhead by 50%.</li>
-                <li>Developed pipeline scripts for building Docker images and test composer scripts used by all service projects.</li>
+                <li>Led design of a comprehensive E2E Framework using <strong>Cypress and Playwright</strong>.</li>
+                <li>Migrated tests to <strong>Playwright/Robot Framework</strong>, reducing maintenance by 50%.</li>
+                <li>Developed automated pipeline scripts for building <strong>Docker images</strong> and test composers.</li>
             </ul>
         </div>
         
         <div class="achievement-section">
             <h4>🏗️ Infrastructure & CI/CD</h4>
             <ul>
-                <li>Created and maintained critical repositories (encompass-ebi-ecfp, ec-e2eusecase).</li>
                 <li>Implemented <strong>AWS ECR image management</strong> with automated build/push pipelines.</li>
-                <li>Executed compliance initiatives: Docker Client Certificate updates, GAM Rebranding, and Access Key Rotation.</li>
+                <li>Designed YAML-based <strong>Azure DevOps pipelines</strong> with multi-environment support.</li>
+                <li>Executed compliance projects: GAM Rebranding and Access Key Rotation.</li>
             </ul>
         </div>
 
         <div class="achievement-section">
-            <h4>📊 DevOps Pipeline Development</h4>
-            <ul>
-                <li>Designed YAML-based <strong>Azure DevOps pipelines</strong> with scheduled builds and multi-environment support.</li>
-                <li>Implemented common build templates and Shell scripts for orchestration.</li>
-            </ul>
-        </div>
-
-        <div class="achievement-section">
-            <h4>💡 Innovation & Knowledge Sharing</h4>
+            <h4>💡 Innovation & AI</h4>
             <ul>
                 <li>Early adopter of <strong>Cursor AI</strong> for development productivity.</li>
                 <li>Active contributor to internal AI community sharing best practices.</li>
             </ul>
         </div>
 
-        <div class="section-header">Telecom Domain & Legacy Expertise</div>
+        <div class="section-header">Telecom & Legacy Systems Expertise</div>
 
         <div class="achievement-section">
-            <h4>📋 Strategic Consulting & Business Analysis</h4>
+            <h4>📋 Strategic Consulting</h4>
             <ul>
-                <li>Collaborated with business users to analyze operational impacts and created As-Is flows for legacy billing systems (DTAC).</li>
+                <li>Collaborated with <strong>DTAC</strong> to analyze operational impacts and As-Is flows.</li>
                 <li>Built POC models and documented <strong>Functional Requirement Specifications (FRS)</strong>.</li>
-                <li>Led scrum teams as Scrum Master, engaging with product owners and training developers on <strong>Singleview architecture</strong>.</li>
+                <li>Led scrum teams as <strong>Scrum Master</strong>, engaging with product owners.</li>
             </ul>
         </div>
 
         <div class="achievement-section">
             <h4>💳 Billing Systems Engineering</h4>
             <ul>
-                <li>Expertise in <strong>Singleview & Siebel</strong> billing integration, Rating & Charging, and Product Configuration.</li>
+                <li>Expertise in <strong>Singleview & Siebel</strong>: Rating, Charging, and Product Configuration.</li>
                 <li>Designed telco modules for Billing Discounts, Price Increases, and TAP/Roaming.</li>
-                <li>Implemented financial logic for <strong>SEPA (Single Euro Payments Area)</strong> and Volume Discounts.</li>
+                <li>Implemented financial logic for <strong>SEPA</strong> compliance and Volume Discounts.</li>
             </ul>
         </div>
 
         <div class="achievement-section">
             <h4>🔄 System Integration & Delivery</h4>
             <ul>
-                <li>Managed complex <strong>Data Migration</strong> projects, executing transitions from legacy systems to Singleview.</li>
-                <li>Integrated CBS with external systems (UVC, Mediation, PRM) via ESB and handled Singleview integration with OSB.</li>
-                <li>Provided high-stakes on-site support at <strong>MTN Nigeria</strong> for Singleview implementation.</li>
+                <li>Managed complex <strong>Data Migration</strong> projects from legacy systems to Singleview.</li>
+                <li>Integrated CBS with external systems (UVC, Mediation, PRM) via ESB and OSB.</li>
+                <li>Provided high-stakes on-site support at <strong>MTN Nigeria</strong> for implementation.</li>
             </ul>
         </div>
     </div>
 </div>
 
-<div class="footer" style="text-align:center; font-size:7pt; color:#aaa; margin-top:20px; border-top:1px solid #eee; padding-top:10px;">
+<div class="footer" style="text-align:center; font-size:7.5pt; color:#aaa; margin-top:30px; border-top:1px solid #eee; padding-top:10px;">
     References available upon request
 </div>
 
