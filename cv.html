@@ -56,14 +56,23 @@
         .header .contact {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px; /* Reduced gap slightly for more links */
             flex-wrap: wrap;
-            font-size: 9pt;
+            font-size: 8.5pt;
         }
-        .header .contact span {
+        /* Updated pill styling for links */
+        .header .contact span, .header .contact a {
             background: rgba(255,255,255,0.15);
             padding: 4px 12px;
             border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .header .contact a:hover {
+            background: rgba(255,255,255,0.25);
         }
         
         /* LAYOUT */
@@ -182,7 +191,7 @@
         }       
 
         .cert-badge i.fa-aws {
-            color: #ff9900 !important; /* The precise AWS Orange logo color */
+            color: #ff9900 !important;
             font-size: 18px !important;
             display: block !important;
         }       
@@ -237,16 +246,6 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        .current-role-header {
-            background: #ebf8ff;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid #2b6cb0;
-        }
-        .current-role-header h3 { margin: 0; color: #2c5282; font-size: 11pt; }
-        .current-role-header div { font-size: 9pt; color: #4a5568; margin-top: 4px; }
-
         .achievement-section {
             background: white;
             border: 1px solid #e2e8f0;
@@ -290,10 +289,12 @@
     <h1>KAMAL PRASAD RAMAN</h1>
     <div class="title">DevOps Engineer | Software Dev Engr Sr | Telecom Billing Specialist</div>
     <div class="contact">
-        <span>📍 Melbourne, VIC</span>
-        <span>📱 045-197-0553</span>
-        <span>✉️ <a href="mailto:kamleein@gmail.com" style="color: inherit; text-decoration: none;">kamleein@gmail.com</a></span>
-        <span>🌐 <a href="https://kamlee.in" target="_blank" style="color: inherit; text-decoration: none;">kamlee.in</a></span>
+        <span><i class="fas fa-map-marker-alt"></i> Melbourne, VIC</span>
+        <span><i class="fas fa-phone"></i> 045-197-0553</span>
+        <a href="mailto:kamleein@gmail.com"><i class="fas fa-envelope"></i> kamleein@gmail.com</a>
+        <a href="https://kamlee.in" target="_blank"><i class="fas fa-globe"></i> kamlee.in</a>
+        <a href="https://www.linkedin.com/in/kamleein/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/kamleein" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     </div>
 </div>
 
@@ -348,19 +349,7 @@
 
         <div class="section-header">Major Clients</div>
         <ul class="clients-list">
-            <li>Vocus</li>
-            <li>Optus</li>
-            <li>Nexon</li>
-            <li>Voyager</li>
-            <li>VicTracks</li>
-            <li>Tele2 NL</li>
-            <li>H3 UK</li>
-            <li>Vodafone IT</li>
-            <li>Inmarsat UK</li>
-            <li>DTAC Thai</li>
-            <li>MTN Nigeria</li>
-            <li>Polkomtel</li>
-            <li>Equinix</li>
+            <li>Vocus</li><li>Optus</li><li>Nexon</li><li>Voyager</li><li>VicTracks</li><li>Tele2 NL</li><li>H3 UK</li><li>Vodafone IT</li><li>Inmarsat UK</li><li>DTAC Thai</li><li>MTN Nigeria</li><li>Polkomtel</li><li>Equinix</li>
         </ul>
 
         <div class="section-header">Core Competencies</div>
@@ -395,8 +384,8 @@
         <a href="https://www.linkedin.com/in/kamleein/details/certifications/" target="_blank" class="cert-badge">
             <i class="fab fa-aws"></i>
             <div class="cert-text-left">
-                <p class="cert-label">AWS Certified</p>
-                <p class="cert-name">Co-Pilot</p>
+                <p class="cert-label">CSG Certified</p>
+                <p class="cert-name">AWS Co-Pilot</p>
             </div>
         </a>
         
@@ -419,7 +408,7 @@
         <div class="achievement-section">
             <h4>🚀 End-to-End Test Automation Framework (Major Impact)</h4>
             <ul>
-                <li>Solely designed a comprehensive <strong>E2E Test Automation Framework</strong> using <strong>Cypress and Playwright</strong>, enabling testing across multiple AWS accounts/CDEs.</li>
+                <li>Led the design of a comprehensive <strong>E2E Test Automation Framework</strong> using <strong>Cypress and Playwright</strong>, enabling testing across multiple AWS accounts/CDEs.</li>
                 <li>Migrated E2E Tests from Cypress to <strong>Playwright/Robot Framework</strong>, reducing maintenance overhead by 50%.</li>
                 <li>Developed pipeline scripts for building Docker images and test composer scripts used by all service projects.</li>
             </ul>
