@@ -96,15 +96,13 @@
             border-radius: 8px;
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); 
             z-index: 999; 
-            pointer-events: auto; /* Fixed: allows interaction */
+            pointer-events: auto;
         }
         
-        /* Laptop Hover Effect */
         @media screen and (min-width: 769px) {
             .timeline-item:hover .exp-details { display: block; animation: fadeIn 0.3s ease-in-out; }
         }
 
-        /* Mobile Overflow Solution: Inline expansion instead of pop-up */
         @media screen and (max-width: 768px) {
             .two-column-layout { flex-direction: column; }
             .left-column, .right-column { width: 100%; }
@@ -139,12 +137,17 @@
         .achievement-section, .summary-card { border-left: 4px solid #4299e1; }
         .competency-card, .education-card { border-top: 3px solid #4299e1; }
 
-        .achievement-section:hover, .summary-card:hover, .competency-card:hover, .education-card:hover, .cert-badge:hover {
+        .achievement-section:hover, .summary-card:hover, .competency-card:hover, .education-card:hover, .cert-badge:hover, .fcc-badge:hover {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 10px 20px rgba(66, 153, 225, 0.15);
             border-color: #4299e1;
             z-index: 10;
         }
+
+        /* SHARED CERTIFICATE TEXT STYLES */
+        .cert-text-left { text-align: left; display: flex; flex-direction: column; justify-content: center; line-height: 1.2 !important; }       
+        .cert-label { font-size: 7px !important; color: rgba(255, 255, 255, 0.7) !important; text-transform: uppercase !important; font-weight: 900 !important; margin: 0; }       
+        .cert-name { font-size: 11px !important; font-weight: 700 !important; color: white !important; margin: 0 !important; }
 
         /* AWS BADGE */
         .cert-badge {
@@ -152,10 +155,22 @@
             padding: 12px !important; border-radius: 8px !important; display: flex !important; align-items: center !important;
             gap: 10px !important; text-decoration: none !important; margin-top: 8px;
         }       
-        .cert-badge i.fa-aws { color: #ff9900 !important; font-size: 20px !important; }       
-        .cert-text-left { text-align: left; display: flex; flex-direction: column; justify-content: center; line-height: 1.2 !important; }       
-        .cert-label { font-size: 7px !important; color: rgba(255, 255, 255, 0.7) !important; text-transform: uppercase !important; font-weight: 900 !important; margin: 0; }       
-        .cert-name { font-size: 11px !important; font-weight: 700 !important; color: white !important; margin: 0 !important; }
+        .cert-badge i.fa-aws { color: #ff9900 !important; font-size: 20px !important; }
+
+        /* freeCodeCamp BADGE */
+        .fcc-badge {
+            background-color: #0a0a23 !important; 
+            border: 1px solid rgba(255, 255, 255, 0.2) !important; 
+            color: white !important;
+            padding: 12px !important; 
+            border-radius: 8px !important; 
+            display: flex !important; 
+            align-items: center !important;
+            gap: 10px !important; 
+            text-decoration: none !important; 
+            margin-top: 8px;
+        }
+        .fcc-badge i.fa-free-code-camp { color: white !important; font-size: 20px !important; }
 
         .summary-card { padding: 15px; font-size: 9pt; margin-bottom: 20px; }
         .achievement-section h4 { color: #2c5282; margin: 0 0 8px 0; font-size: 10pt; display: flex; align-items: center; gap: 6px; }
@@ -308,6 +323,14 @@
         </div>
 
         <div class="section-header">Certifications</div>
+        <a href="https://www.freecodecamp.org/certification/fcc6be68a8c-db71-4b98-9918-7971e2a73c77/scientific-computing-with-python-v7" target="_blank" class="fcc-badge">
+            <i class="fab fa-free-code-camp"></i>
+            <div class="cert-text-left">
+                <p class="cert-label">Free Code Camp Certified</p>
+                <p class="cert-name">Python Scientific Computing</p>
+            </div>
+        </a>
+        
         <a href="https://www.linkedin.com/in/kamleein/details/certifications/" target="_blank" class="cert-badge">
             <i class="fab fa-aws"></i>
             <div class="cert-text-left">
